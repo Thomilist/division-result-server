@@ -60,8 +60,6 @@
         let res = await fetch(`/api/fetch/updatedAt/${competition.id}`);
         const updatedAt: Date = await res.json();
 
-        console.log(`Updated at: ${updatedAt}`);
-
         if (updatedAt > lastChanged || lastChanged == undefined)
         {
             lastChanged = updatedAt;
@@ -74,7 +72,7 @@
                 selectInitialDivision();
             }
 
-            console.log("New competition data fetched");
+            console.log("Competition data updated");
         }
     }
 

@@ -20,7 +20,7 @@
             res = await fetch(`/api/fetch/${division.competitionId}/${division.divisionId}`);
             division = await res.json();
 
-            console.log("New division data fetched");
+            console.log("Division data updated");
         }
     }
 

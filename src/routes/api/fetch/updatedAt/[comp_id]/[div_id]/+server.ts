@@ -1,7 +1,7 @@
 import prisma from "$lib/prisma";
 import { lookupCompetitionById } from "$lib/server/competition.lookup";
 import { DivisionContent } from "$lib/server/enums";
-import { HTTP_Error_Competition_Not_Found, HTTP_Error_Division_Not_Found, HTTP_Error_Private_Competition } from "$lib/server/http.errors";
+import { HTTP_Error_Competition_Not_Found, HTTP_Error_Division_Not_Found, HTTP_Error_Malformed_Metadata, HTTP_Error_Private_Competition } from "$lib/server/http.errors";
 import { Visibility } from "@prisma/client";
 import { error, json, type RequestHandler } from "@sveltejs/kit";
 
@@ -14,6 +14,11 @@ export const GET: RequestHandler = async ({ params }) =>
     
     const comp_id: number = parseInt(params.comp_id);
     const div_id: number = parseInt(params.div_id);
+
+    if (Number.isNaN(comp_id) || Number.isNaN(div_id))
+    {
+        throw HTTP_Error_Malformed_Metadata;
+    }
     
     const competition = await lookupCompetitionById(comp_id, DivisionContent.LIGHT, false);
 
