@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Division {
+  competitionId Int
+  divisionId Int
+  name String?
+  resultsHtml String @default("")
+  updatedAt DateTime @updatedAt
+  competition Competition @relation(references: [id], fields: [competitionId])
+
+  @@id([competitionId, divisionId])
+}
+
+model Competition {
+  id Int @id @default(autoincrement())
+  password String?
+  visibility Visibility @default(PRIVATE)
+  name String?
+  organiser String?
+  date String?
+  liveresultsId Int?
+  divisions Division[]
+  updatedAt DateTime @updatedAt
+}
+
+enum Visibility {
+  PUBLIC
+  HIDDEN
+  PRIVATE
+}
