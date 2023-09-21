@@ -1,0 +1,281 @@
+@import 'base.scss';
+
+:global(.division-result) {
+    :global(h3.matchnavn) {
+        border-bottom: 5px solid blue;
+        text-align: center;
+    }
+
+    :global([class*="Header"]) {
+        border-bottom: 5px solid blue;
+        margin-bottom: 5px;
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    :global(.gruppepoint) {
+        text-align: center;
+    }
+    
+    :global(table) {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+    }
+
+    :global(thead) {
+        border-bottom: 1px solid black;
+    }
+
+    :global(tbody) {
+        :global(tr:nth-child(odd)) {
+            background-color: lightgray;
+        }
+
+        :global(tr:last-child) {
+            border-bottom: 1px solid black;
+        }
+    }
+
+    :global(.knavn) {
+        text-align: left;
+    }
+
+    :global(.bnavn) {
+        text-align: left;
+    }
+
+    :global(.lnavn) {
+        text-align: left;
+    }
+
+    :global(.page-break) {
+        height: 50px;
+    }
+
+    :global(div.table-wrapper) {
+        max-width: 100%;
+        overflow: auto;
+        margin-top: 10px;
+
+        :global(td) {
+            white-space: nowrap;
+
+            :global(.knavn) {
+                white-space: wrap;
+            }
+        }
+
+        $table_spacing: 50px;
+        
+        :global(.matchresultat) {
+            :global(th) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            :global(td) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+            
+            :global(table) {
+                position: relative;
+            }
+
+            :global(th) {
+                position: sticky;
+                top: 0;
+                background: white;
+            }
+
+            :global(th:nth-child(2)) {
+                position: sticky;
+                top: 0;
+                left: 0;
+                background: white;
+                z-index: 1;
+            }
+
+            :global(tr:nth-child(even)) {
+                :global(td:nth-child(2)) {
+                    text-align: left;
+                    background: white;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(tr:nth-child(odd)) {
+                :global(td:nth-child(2)) {
+                    text-align: left;
+                    background: lightgray;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(td:not(:last-child)) {
+                border-right: 1px solid gray;
+            }
+        }
+
+        :global(.matchgruppe) {
+            :global(table) {
+                position: relative;
+            }
+
+            :global(th) {
+                position: sticky;
+                top: 0;
+                background: white;
+            }
+
+            :global(th:first-child) {
+                position: sticky;
+                top: 0;
+                left: 0;
+                background: white;
+                z-index: 1;
+            }
+
+            :global(tr:nth-child(even)) {
+                :global(td:first-child) {
+                    text-align: left;
+                    background: white;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(tr:nth-child(odd)) {
+                :global(td:first-child) {
+                    text-align: left;
+                    background: lightgray;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(td:not(:last-child)) {
+                border-right: 1px solid gray;
+            }
+        }
+
+        :global(.stilling) {
+            :global(th) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            :global(td) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            :global(table) {
+                position: relative;
+            }
+
+            :global(th) {
+                position: sticky;
+                top: 0;
+                background: white;
+            }
+
+            :global(th:first-child) {
+                position: sticky;
+                top: 0;
+                left: 0;
+                background: white;
+                z-index: 1;
+            }
+
+            :global(tr:nth-child(even)) {
+                :global(td:first-child) {
+                    text-align: left;
+                    background: white;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(tr:nth-child(odd)) {
+                :global(td:first-child) {
+                    text-align: left;
+                    background: lightgray;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+        }
+
+        :global(.matcher) {
+            :global(tr:first-child) {
+                border-top: 1px solid black;
+            }
+
+            :global(td) {
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+
+            :global(td:nth-child(3)) {
+                text-align: right;
+            }
+        }
+
+        :global(.gruppe) {
+            :global(th) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            :global(td) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            :global(table) {
+                position: relative;
+            }
+
+            :global(th) {
+                position: sticky;
+                top: 0;
+                background: white;
+            }
+
+            :global(th:nth-child(2)) {
+                position: sticky;
+                top: 0;
+                left: 0;
+                background: white;
+                z-index: 1;
+            }
+
+            :global(tr:nth-child(even)) {
+                :global(td:nth-child(2)) {
+                    text-align: left;
+                    background: white;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(tr:nth-child(odd)) {
+                :global(td:nth-child(2)) {
+                    text-align: left;
+                    background: lightgray;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(td:not(:last-child)) {
+                border-right: 1px solid gray;
+            }
+        }
+    }
+}

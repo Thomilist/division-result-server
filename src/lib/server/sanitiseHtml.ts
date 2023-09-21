@@ -31,24 +31,12 @@ export function sanitiseResults(dirty_html: string): string
                     name: "colspan",
                     multiple: false,
                     values: ["3"]
-                },
-                {
-                    name: "style",
-                    multiple: false,
-                    values: ["text-align:center"]
-                }
-            ],
-            "td": [
-                {
-                    name: "style",
-                    multiple: false,
-                    values: ["text-align:left", "text-align:right", "white-space:nowrap"]
                 }
             ]
         },
         allowedClasses: {
             "h3": ["matchnavn"],
-            "div": ["matchresultat", "page-break", "stillingContainer", "stillingHeader", "stilling", "matcher", "matchgruppe", "matchgruppeHeader", "gruppe", "gruppeHeader", "gruppepoint"],
+            "div": ["matchresultat", "page-break", "stillingContainer", "stillingHeader", "stilling", "matcher", "matchgruppe", "matchgruppeHeader", "gruppe", "gruppeHeader", "gruppepoint", "table-wrapper"],
             "table": ["matchresultat", "stilling", "matcher", "matchgruppe", "gruppe"],
             "th": ["knavn", "lnavn"],
             "td": ["knavn", "bnavn", "lnavn"]

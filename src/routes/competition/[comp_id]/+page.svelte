@@ -15,10 +15,17 @@
         ));
 </script>
 
-{#if is_visible}
-    {#if data.comp != null}
-        <Competition comp={data.comp}/>
+<style lang="scss">
+    @import '../../../styles/base.scss';
+    //@import '../../../styles/debug.scss';
+</style>
+
+<div class="base">
+    {#if is_visible}
+        {#if data.comp != null}
+            <Competition comp={data.comp}/>
+        {/if}
+    {:else}
+        <p>There is nothing here :/</p>
     {/if}
-{:else}
-    <p>There is nothing here :/</p>
-{/if}
+</div>

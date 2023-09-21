@@ -88,6 +88,12 @@
     });
 </script>
 
+<style lang="scss">
+    @import '../styles/base.scss';
+    @import '../styles/comp-header.scss';
+    //@import '../styles/debug.scss';
+</style>
+
 <svelte:head>
     <title>{competition_name} - Live Division Results</title>
 </svelte:head>
@@ -97,39 +103,45 @@
 </h1>
 
 {#if (contains_divisions || contains_liveresults_id)}
-    <table>
-        <tr>
+    <div class="panel">
+        <table>
             {#if (contains_divisions)}
-                <td>
-                    <fieldset>
-                        <legend>Select division:</legend>
-        
-                        {#each competition.divisions as division}
-                            <div>
-                                <label>
-                                    <input
-                                    type="radio"
-                                    name={division.name}
-                                    value={division.divisionId}
-                                    bind:group={selected_division_id}
-                                />
-                                    {division.name}
-                                </label>
-                            </div>
-                        {/each}
-                    </fieldset>
-                </td>
+                <tr>
+                    <td>
+                        <div class="division-selector">
+                            <fieldset>
+                                <legend>Select division:</legend>
+                
+                                {#each competition.divisions as division}
+                                    <div>
+                                        <label>
+                                            <input
+                                            type="radio"
+                                            name={division.name}
+                                            value={division.divisionId}
+                                            bind:group={selected_division_id}
+                                        />
+                                            {division.name}
+                                        </label>
+                                    </div>
+                                {/each}
+                            </fieldset>
+                        </div>
+                    </td>
+                </tr>
             {/if}
 
             {#if contains_liveresults_id}
-                <td>
-                    <div>
-                        <a target="_blank" href={liveresults_url}>View on Liveresults</a>
-                    </div>
-                </td>
+                <tr>
+                    <td>
+                        <div class="liveresults">
+                            <a target="_blank" href={liveresults_url}>View on Liveresults</a>
+                        </div>
+                    </td>
+                </tr>
             {/if}
-        </tr>
-    </table>
+        </table>
+    </div>
 {/if}
 
 {#if contains_divisions}

@@ -1,0 +1,27 @@
+@import 'fonts.scss';
+
+//@import 'debug.scss';
+
+$target_width: 800px;
+$max_relative_width: 70%;
+
+.base {
+    max-width: max($target_width, $max_relative_width);
+
+    @media (max-width: $target_width) {
+        max-width: 100%;
+    }
+
+    @media (min-width: $target_width) {
+        max-width: max($target_width, $max_relative_width);
+    }
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}

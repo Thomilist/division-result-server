@@ -1,0 +1,39 @@
+table.link-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px;
+
+    th {
+        text-align: left;
+        padding: 5px 10px 5px 10px;
+    }
+
+    td {
+        padding: 5px 10px 5px 10px;
+    }
+
+    tr.header {
+        border-bottom: 1px solid black;
+    }
+
+    tr.content:last-child {
+        border-bottom: 1px solid black;
+    }
+
+    tr.content:nth-child(even) {
+        background-color: lightgray;
+    }
+
+    @media (pointer: fine) {
+            tr.content:hover {
+            background-color: lightblue;
+            cursor: pointer;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+        display: block;
+    }
+}

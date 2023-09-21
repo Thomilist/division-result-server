@@ -1,0 +1,28 @@
+@import 'base.scss';
+
+nav.nav-bar {
+    background-color: blue;
+    
+    a.nav-item {
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        padding: 20px;
+    }
+
+    @media (pointer: fine) {
+        a.nav-item:hover {
+            background-color: rgb(32, 32, 255);
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        display: block;
+        padding: 0;
+    }
+
+    * {
+        display: inline;
+    }
+}

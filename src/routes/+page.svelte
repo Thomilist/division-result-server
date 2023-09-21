@@ -5,29 +5,24 @@
     export let data: PageServerData;
 </script>
 
+<style lang="scss">
+    @import '../styles/fonts.scss';
+    @import '../styles/base.scss';
+</style>
+
 <svelte:head>
     <title>Live Division Results</title>
 </svelte:head>
 
-<h1>Live Division Results</h1>
+<div class="base">
+    {#if data.competitions_today.length > 0}
+        <CompetitionList comps={data.competitions_today} today={true}/>
+    {/if}
 
-{#if data.competitions_today.length > 0}
-
-<h2>Live Today</h2>
-
-<CompetitionList comps={data.competitions_today} today={true}/>
-
-{/if}
-
-{#if data.competitions.length > 0}
-
-<h2>All Competitions</h2>
-
-<CompetitionList comps={data.competitions} today={false}/>
-
-{:else if data.competitions_today.length <= 0}
-
-<p>No competitions to show :/</p>
-
-{/if}
+    {#if data.competitions.length > 0}
+        <CompetitionList comps={data.competitions} today={false}/>
+    {:else if data.competitions_today.length <= 0}
+        <p>No competitions to show :/</p>
+    {/if}
+</div>
 

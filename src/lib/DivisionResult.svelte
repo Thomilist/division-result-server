@@ -36,11 +36,16 @@
     });
 </script>
 
+<style lang="scss">
+    @import '../styles/division-result.scss';
+    //@import '../styles/debug.scss';
+</style>
+
 {#if (division.divisionId == active_id)}
 
 {#if division.resultsHtml}
 
-<div>
+<div class="division-result">
     {@html division.resultsHtml}
 </div>
 
