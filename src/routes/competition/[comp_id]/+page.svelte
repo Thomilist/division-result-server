@@ -17,7 +17,6 @@
 
 <style lang="scss">
     @import '../../../styles/base.scss';
-    //@import '../../../styles/debug.scss';
 </style>
 
 <div class="base">

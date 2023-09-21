@@ -91,7 +91,6 @@
 <style lang="scss">
     @import '../styles/base.scss';
     @import '../styles/comp-header.scss';
-    //@import '../styles/debug.scss';
 </style>
 
 <svelte:head>

@@ -38,7 +38,6 @@
 
 <style lang="scss">
     @import '../styles/division-result.scss';
-    //@import '../styles/debug.scss';
 </style>
 
 {#if (division.divisionId == active_id)}

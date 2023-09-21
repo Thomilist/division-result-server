@@ -130,7 +130,16 @@
                 position: relative;
             }
 
+            :global(td) {
+                min-width: 35px;
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
             :global(th) {
+                min-width: 35px;
+                padding-right: 5px;
+                padding-left: 5px;
                 position: sticky;
                 top: 0;
                 background: white;
