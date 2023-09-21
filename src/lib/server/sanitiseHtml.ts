@@ -36,8 +36,8 @@ export function sanitiseResults(dirty_html: string): string
         },
         allowedClasses: {
             "h3": ["matchnavn"],
-            "div": ["matchresultat", "page-break", "stillingContainer", "stillingHeader", "stilling", "matcher", "matchgruppe", "matchgruppeHeader", "gruppe", "gruppeHeader", "gruppepoint", "table-wrapper"],
-            "table": ["matchresultat", "stilling", "matcher", "matchgruppe", "gruppe"],
+            "div": ["matchresultat", "page-break", "stillingContainer", "stillingHeader", "stilling", "matcher", "stilling0Container", "stilling0Header", "stilling0", "matcher0", "matchgruppe", "matchgruppeHeader", "gruppe", "gruppeHeader", "gruppepoint", "table-wrapper"],
+            "table": ["matchresultat", "stilling", "matcher", "stilling0", "matcher0", "matchgruppe", "gruppe"],
             "th": ["knavn", "lnavn"],
             "td": ["knavn", "bnavn", "lnavn"]
         }

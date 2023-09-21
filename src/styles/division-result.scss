@@ -54,6 +54,10 @@
         height: 50px;
     }
 
+    :global(.stilling0Container) {
+        margin-top: 50px;
+    }
+
     :global(div.table-wrapper) {
         max-width: 100%;
         overflow: auto;
@@ -222,6 +226,69 @@
             }
 
             :global(td:nth-child(3)) {
+                text-align: right;
+            }
+        }
+
+        :global(.stilling0) {
+            :global(th) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            :global(td) {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            :global(table) {
+                position: relative;
+            }
+
+            :global(th) {
+                position: sticky;
+                top: 0;
+                background: white;
+            }
+
+            :global(th:first-child) {
+                position: sticky;
+                top: 0;
+                left: 0;
+                background: white;
+                z-index: 1;
+            }
+
+            :global(tr:nth-child(even)) {
+                :global(td:first-child) {
+                    text-align: left;
+                    background: white;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+
+            :global(tr:nth-child(odd)) {
+                :global(td:first-child) {
+                    text-align: left;
+                    background: lightgray;
+                    position: sticky;
+                    left: 0;
+                }
+            }
+        }
+
+        :global(.matcher0) {
+            :global(tr:first-child) {
+                border-top: 1px solid black;
+            }
+
+            :global(td) {
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+
+            :global(td:first-child) {
                 text-align: right;
             }
         }

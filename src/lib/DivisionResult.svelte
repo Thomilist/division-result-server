@@ -26,7 +26,7 @@
 
     onMount(() =>
     {
-        timer = setInterval(async () => {fetchData();}, 10000);
+        timer = setInterval(async () => {fetchData();}, 30000);
         fetchData();
     });
 
