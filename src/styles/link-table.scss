@@ -1,3 +1,6 @@
+$vpad: 7px;
+$hpad: 10px;
+
 table.link-table {
     border-collapse: collapse;
     width: 100%;
@@ -5,11 +8,11 @@ table.link-table {
 
     th {
         text-align: left;
-        padding: 5px 10px 5px 10px;
+        padding: $vpad $hpad $vpad $hpad;
     }
 
     td {
-        padding: 5px 10px 5px 10px;
+        padding: 0;
     }
 
     tr.header {
@@ -35,5 +38,6 @@ table.link-table {
         text-decoration: none;
         color: black;
         display: block;
+        padding: $vpad $hpad $vpad $hpad;
     }
 }
