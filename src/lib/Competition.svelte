@@ -76,10 +76,16 @@
         }
     }
 
+    function logVisit()
+    {
+        fetch(`/api/logVisit/${competition.id}`, {method: "PUT"});
+    }
+
     onMount(() =>
     {
         timer = setInterval(async () => {fetchData();}, 30000);
         fetchData();
+        logVisit();
     });
 
     onDestroy(() =>
@@ -112,17 +118,19 @@
                                 <legend>Select division:</legend>
                 
                                 {#each competition.divisions as division}
-                                    <div>
-                                        <label>
-                                            <input
-                                            type="radio"
-                                            name={division.name}
-                                            value={division.divisionId}
-                                            bind:group={selected_division_id}
-                                        />
-                                            {division.name}
-                                        </label>
-                                    </div>
+                                    {#if division.name}
+                                        <div>
+                                            <label>
+                                                <input
+                                                type="radio"
+                                                name={division.name}
+                                                value={division.divisionId}
+                                                bind:group={selected_division_id}
+                                            />
+                                                {division.name}
+                                            </label>
+                                        </div>
+                                    {/if}
                                 {/each}
                             </fieldset>
                         </div>
@@ -150,7 +158,7 @@
 {/if}
 
 {#if (!contains_divisions && !contains_liveresults_id)}
-    <p>
-        No results in this competition :/
+    <p class="error">
+        No results in this competition (yet) :/
     </p>
 {/if}

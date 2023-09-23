@@ -1,3 +1,4 @@
+import prisma from "$lib/prisma";
 import type { PayloadJson } from "$lib/server/competition.json";
 import { lookupCompetitionById, lookupCompetitionByRequest } from "$lib/server/competition.lookup";
 import updateMetadata from "$lib/server/competition.updateMetadata";
@@ -18,6 +19,17 @@ export const PUT: RequestHandler = async ({ request }) =>
     const payload: PayloadJson = await request.json();
     await updateMetadata(competition, payload);
     await updateResults(competition, payload);
+
+    await prisma.analytics.update({
+        where: {
+            competitionId: competition.id
+        },
+        data: {
+            resultUpdates: {
+                increment: 1
+            }
+        }
+    });
     
     const updated_competition = await lookupCompetitionById(competition.id, DivisionContent.LIGHT, true);
     return json(updated_competition);

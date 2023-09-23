@@ -1,15 +1,11 @@
 import type { PageServerLoad } from './$types';
 import { lookupCompetitionById } from "$lib/server/competition.lookup";
 import { DivisionContent } from "$lib/server/enums";
+import { validateId } from '$lib/server/competition.validateId';
 
 export const load: PageServerLoad = async ({ params }) =>
 {
-	if (Number.isNaN(parseInt(params.comp_id)))
-	{
-		return { comp: null };
-	}
-
-	return {
-		comp: lookupCompetitionById(parseInt(params.comp_id), DivisionContent.FULL, false)
-	};
+	const comp_id = validateId(params.comp_id);
+	const competition = await lookupCompetitionById(comp_id, DivisionContent.FULL, false);
+	return { comp: competition };
 };

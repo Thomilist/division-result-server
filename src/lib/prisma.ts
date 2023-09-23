@@ -4,7 +4,8 @@ const prisma = new PrismaClient();
 
 type CompetitionWithDivisions = Prisma.CompetitionGetPayload<{
     include: {
-        divisions: true;
+        divisions: true,
+        analytics: true
     }
 }>;
 
@@ -17,7 +18,8 @@ type CompetitionWithLightDivisions = Prisma.CompetitionGetPayload<{
                 name: true,
                 updatedAt: true
             }
-        }
+        },
+        analytics: true
     }
 }>;
 

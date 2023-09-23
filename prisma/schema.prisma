@@ -31,6 +31,16 @@ model Competition {
   liveresultsId Int?
   divisions Division[]
   updatedAt DateTime @updatedAt
+  analytics Analytics?
+}
+
+model Analytics {
+  competitionId Int @id
+  competition Competition @relation(references: [id], fields: [competitionId])
+  updatedAt DateTime @updatedAt
+  visits Int @default(0)
+  metadataUpdates Int @default(0)
+  resultUpdates Int @default(0)
 }
 
 enum Visibility {

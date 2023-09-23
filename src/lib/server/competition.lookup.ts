@@ -2,6 +2,7 @@ import prisma, { type CompetitionWithDivisions, type CompetitionWithLightDivisio
 import { LDR_Competition_ID, LDR_Password } from "./headerfields";
 import { DivisionContent } from "./enums";
 import { HTTP_Error_Competition_Not_Found, HTTP_Error_Incorrect_Password, HTTP_Error_No_Competition_ID, HTTP_Error_No_Password } from "./http.errors";
+import { validateId } from "./competition.validateId";
 
 export async function lookupCompetitionByRequest(request: Request, division_content: DivisionContent.FULL, include_password: boolean ): Promise<CompetitionWithDivisions>;
 export async function lookupCompetitionByRequest(request: Request, division_content: DivisionContent.LIGHT, include_password: boolean ): Promise<CompetitionWithLightDivisions>;
@@ -21,8 +22,9 @@ export async function lookupCompetitionByRequest(request: Request, division_cont
     {
         throw HTTP_Error_No_Password;
     }
-    
-    const competition = await lookupCompetitionById(parseInt(competition_id_header), division_content, include_password);
+
+    const comp_id = validateId(competition_id_header);
+    const competition = await lookupCompetitionById(comp_id, division_content, include_password);
 
     if (competition === null)
     {
@@ -86,7 +88,12 @@ export async function lookupCompetitionById(competition_id: number, division_con
         }
     }
 
-    if (competition != null && !include_password)
+    if (competition == null)
+    {
+        throw HTTP_Error_Competition_Not_Found(competition_id.toString());
+    }
+
+    if (!include_password)
     {
         competition.password = null;
     }

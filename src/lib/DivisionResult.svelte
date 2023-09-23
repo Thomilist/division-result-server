@@ -48,6 +48,12 @@
     {@html division.resultsHtml}
 </div>
 
+{:else}
+
+<p class="error">
+    No results for this division (yet) :/
+</p>
+
 {/if}
 
 {/if}

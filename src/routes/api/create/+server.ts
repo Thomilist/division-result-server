@@ -17,6 +17,12 @@ export const POST: RequestHandler = async ({ request }) =>
             password: password_header
         }
     });
+
+    await prisma.analytics.create({
+        data: {
+            competitionId: competition.id
+        }
+    });
     
     return json(competition, {status: 201});
 }
