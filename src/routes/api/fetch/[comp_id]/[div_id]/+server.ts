@@ -4,7 +4,7 @@ import { validateId } from "$lib/server/competition.validateId";
 import { DivisionContent } from "$lib/server/enums";
 import { HTTP_Error_Competition_Not_Found, HTTP_Error_Division_Not_Found, HTTP_Error_Private_Competition } from "$lib/server/http.errors";
 import { Visibility } from "@prisma/client";
-import { error, json, type RequestHandler } from "@sveltejs/kit";
+import { json, type RequestHandler } from "@sveltejs/kit";
 
 export const GET: RequestHandler = async ({ params }) =>
 {
