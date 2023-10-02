@@ -25,6 +25,9 @@
             <Competition comp={data.comp}/>
         {/if}
     {:else}
-        <p>There is nothing here :/</p>
+        <div class="error">
+            <p class="frown">:(</p>
+            <p>There is nothing here</p>
+        </div>
     {/if}
 </div>

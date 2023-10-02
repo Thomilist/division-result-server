@@ -22,6 +22,9 @@
     {#if data.competitions.length > 0}
         <CompetitionList comps={data.competitions} today={false}/>
     {:else if data.competitions_today.length <= 0}
-        <p class="error">No competitions to show :/</p>
+        <div class="error">
+            <p class="frown">:(</p>
+            <p>No competitions to show</p>
+        </div>
     {/if}
 </div>

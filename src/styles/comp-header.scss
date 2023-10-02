@@ -1,3 +1,16 @@
+@import '../styles/base.scss';
+
+h2.comp-date {
+    color: gray;
+    font-style: italic;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+h1.comp-name {
+    margin-top: 0;
+}
+
 .panel {
     .division-selector {
         fieldset {

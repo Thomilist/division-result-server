@@ -2,6 +2,7 @@
 	import { onDestroy, onMount } from "svelte";
     import DivisionResult from "./DivisionResult.svelte";
 	import type { CompetitionWithDivisions } from "./prisma";
+	import { DateTime } from "luxon";
 
     export let comp: CompetitionWithDivisions;
 
@@ -52,18 +53,19 @@
     updateToggleStates();
     selectInitialDivision();
 
-    let lastChanged: Date;
+    let last_changed: DateTime;
     let timer: NodeJS.Timeout;
 
     async function fetchData()
     {
         let res = await fetch(`/api/fetch/updatedAt/${competition.id}`);
-        const updatedAt: Date = await res.json();
+        const updated_at_json = await res.json();
+        const updated_at = DateTime.fromISO(updated_at_json);
 
-        if (updatedAt > lastChanged || lastChanged == undefined)
+        if (updated_at > last_changed || last_changed == undefined)
         {
-            lastChanged = updatedAt;
-            res = await fetch(`/api/fetch/${competition.id}`);
+            last_changed = updated_at;
+            res = await fetch(`/api/fetch/competition/${competition.id}`);
             competition = await res.json();
             updateToggleStates();
 
@@ -95,7 +97,6 @@
 </script>
 
 <style lang="scss">
-    @import '../styles/base.scss';
     @import '../styles/comp-header.scss';
 </style>
 
@@ -103,8 +104,16 @@
     <title>{competition_name} - Live Division Results</title>
 </svelte:head>
 
-<h1>
-    {competition_name} {#if contains_date}[{competition.date}]{/if}
+
+
+{#if contains_date}
+    <h2 class="comp-date">
+        {competition.date}
+    </h2>
+{/if}
+
+<h1 class="comp-name">
+    {competition_name}
 </h1>
 
 {#if (contains_divisions || contains_liveresults_id)}
@@ -158,7 +167,8 @@
 {/if}
 
 {#if (!contains_divisions && !contains_liveresults_id)}
-    <p class="error">
-        No results in this competition (yet) :/
-    </p>
+    <div class="error">
+        <p class="frown">:(</p>
+        <p>No results in this competition (yet)</p>
+    </div>
 {/if}

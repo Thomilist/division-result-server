@@ -6,6 +6,7 @@ import { VisibilityFromString } from "./enums";
 import { HTTP_Error_Malformed_Metadata, HTTP_Error_No_Metadata } from "./http.errors";
 import { Base64 } from 'js-base64';
 import { sanitiseMetadata } from "./sanitiseHtml";
+import updateDateTime from "./competition.updateDateTime";
 
 export default async function updateMetadata(competition: CompetitionWithLightDivisions, payload: PayloadJson)
 {
@@ -58,6 +59,30 @@ export default async function updateMetadata(competition: CompetitionWithLightDi
         });
     }
 
+    if (metadata.competition.time_zone_iana != null)
+    {
+        await prisma.competition.update({
+            where: {
+                id: competition.id
+            },
+            data: {
+                timeZoneIana: sanitiseMetadata(metadata.competition.time_zone_iana)
+            }
+        });
+    }
+
+    if (metadata.competition.date_time_string != null)
+    {
+        await prisma.competition.update({
+            where: {
+                id: competition.id
+            },
+            data: {
+                dateTimeString: sanitiseMetadata(metadata.competition.date_time_string)
+            }
+        });
+    }
+
     if (metadata.competition.visibility != null)
     {
         const new_visibility = VisibilityFromString.get(metadata.competition.visibility);
@@ -87,6 +112,7 @@ export default async function updateMetadata(competition: CompetitionWithLightDi
         });
     }
 
+    await updateDateTime(competition, metadata);
     await updateDivisionList(competition, metadata);
 
     return;

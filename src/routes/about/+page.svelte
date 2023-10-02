@@ -1,8 +1,3 @@
-<script>
-
-	import { goto } from "$app/navigation";
-
-</script>
 <svelte:head>
     <title>About - Live Division Results</title>
 </svelte:head>
@@ -16,8 +11,9 @@
     <h1>About</h1>
 
     <p>
-        Live Division Results was developed by Thomas Emil Jensen from Horsens OK in a little over a week.
-        It features two components: Division Result Server and Division Result Bridge.
+        Live Division Results is developed by Thomas Emil Jensen from Horsens OK.
+        It made its debut at a division match in Barrit in September of 2023 following a week of intense development.
+        The service consists two components: Division Result Server and Division Result Bridge.
     </p>
 
     <p>
@@ -42,14 +38,19 @@
         - all at a regular interval.
         For organisers, Division Result Bridge is the main interface with the server.
         In addition to managing the results processing pipeline,
-        it also allows users to create competitions on the server and assign their metadata.
+        it also allows organisers to create competitions on the server and assign their metadata.
     </p>
 
     <p>
-        Division Result Bridge is written exclusively in C++,
+        Division Result Bridge is written in C++,
         making extensive use of Qt 6 and its Widgets framework.
         The program itself is cross-platform, running on Linux just as well as on Windows.
         This is not particularly relevant, however, since MeOS and Divisionsmatchberegning both target Windows exclusively.
+    </p>
+
+    <p>
+        Future division match organisers interested in using Live Division Results should have a look at Division Result Bridge on GitHub (linked below).
+        There, you will find extensive documentation in both Danish and English, taking you from initial installation to execution on the day of the event.
     </p>
 
     <p>

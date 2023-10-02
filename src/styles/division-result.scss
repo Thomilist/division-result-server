@@ -1,5 +1,12 @@
 @import 'base.scss';
 
+p.last-changed {
+    width: 100%;
+    text-align: center;
+    color: gray;
+    font-style: italic;
+}
+
 :global(.division-result) {
     :global(h3.matchnavn) {
         border-bottom: 5px solid blue;

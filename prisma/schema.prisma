@@ -28,6 +28,9 @@ model Competition {
   name String?
   organiser String?
   date String?
+  timeZoneIana String?
+  dateTimeString String?
+  dateTime DateTime?
   liveresultsId Int?
   divisions Division[]
   updatedAt DateTime @updatedAt

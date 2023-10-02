@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import type { Competition } from '@prisma/client'
     
     export let comps: Competition[];
