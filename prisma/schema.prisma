@@ -42,8 +42,18 @@ model Analytics {
   competition Competition @relation(references: [id], fields: [competitionId])
   updatedAt DateTime @updatedAt
   visits Int @default(0)
+  visitsMilestones VisitsMilestone[]
   metadataUpdates Int @default(0)
   resultUpdates Int @default(0)
+}
+
+model VisitsMilestone {
+  competitionId Int
+  analytics Analytics @relation(references: [competitionId], fields: [competitionId])
+  visits Int
+  timestamp DateTime
+
+  @@unique([competitionId, visits])
 }
 
 enum Visibility {

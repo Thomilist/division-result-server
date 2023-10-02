@@ -9,6 +9,14 @@ export const GET: RequestHandler = async ({ params }) =>
     const analytics = await prisma.analytics.findUnique({
         where: {
             competitionId: comp_id
+        },
+        include: {
+            visitsMilestones: {
+                select: {
+                    visits: true,
+                    timestamp: true
+                }
+            }
         }
     });
 
