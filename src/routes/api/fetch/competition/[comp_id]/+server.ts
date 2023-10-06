@@ -17,7 +17,7 @@ export const GET: RequestHandler = async ({ params }) =>
 
     if (competition.visibility === Visibility.PRIVATE)
     {
-        throw HTTP_Error_Private_Competition;
+        throw HTTP_Error_Private_Competition(comp_id.toString());
     }
 
     return json(competition);

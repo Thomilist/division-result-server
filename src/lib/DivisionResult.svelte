@@ -23,10 +23,11 @@
             last_changed = updated_at;
             res = await fetch(`/api/fetch/competition/${division.competitionId}/${division.divisionId}`);
             division = await res.json();
-            last_changed_text = lastChangedText(updated_at);
 
             console.log("Division data updated");
         }
+
+        last_changed_text = lastChangedText(updated_at);
     }
 
     onMount(() =>
