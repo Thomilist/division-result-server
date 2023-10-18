@@ -40,7 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@prisma/client": "5.3.1",
+		"@prisma/client": "^5.3.1",
 		"dotenv": "^16.3.1",
 		"js-base64": "^3.7.5",
 		"luxon": "^3.4.3",

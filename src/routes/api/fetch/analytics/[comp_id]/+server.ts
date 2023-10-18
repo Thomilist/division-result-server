@@ -1,5 +1,6 @@
 import prisma from "$lib/prisma";
 import { validateId } from "$lib/server/competition.validateId";
+import { HTTP_Error_Competition_Not_Found } from "$lib/server/http.errors";
 import { json, type RequestHandler } from "@sveltejs/kit";
 
 export const GET: RequestHandler = async ({ params }) =>
@@ -19,6 +20,11 @@ export const GET: RequestHandler = async ({ params }) =>
             }
         }
     });
+
+    if (analytics == null)
+    {
+        throw HTTP_Error_Competition_Not_Found(comp_id.toString());
+    }
 
     return json(analytics);
 }

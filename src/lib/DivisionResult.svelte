@@ -9,7 +9,7 @@
 
     let division: Division = div;
     let last_changed: DateTime;
-    let last_changed_text: string = "loading...";
+    let last_changed_text: string = lastChangedText(DateTime.fromJSDate(div.updatedAt));
     let timer: NodeJS.Timeout;
 
     async function fetchData()
