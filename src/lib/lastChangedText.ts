@@ -4,20 +4,20 @@ export default function lastChangedText(last_changed_time: DateTime): string
 {
     if (!last_changed_time)
     {
-        return "unknown";
+        return "ukendt";
     }
 
     if (Math.abs(last_changed_time.diffNow().as('minutes')) < 1)
     {
-        return "just now";
+        return "lige nu";
     }
 
-    const difference = last_changed_time.toRelative({ locale: 'en' });
+    const difference = last_changed_time.toRelative({ locale: 'da' });
     
     if (difference)
     {
         return difference;
     }
 
-    return "unknown";
+    return "ukendt";
 }

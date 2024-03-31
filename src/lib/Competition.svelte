@@ -101,7 +101,7 @@
 </style>
 
 <svelte:head>
-    <title>{competition_name} - Live Division Results</title>
+    <title>{competition_name} - Live Divisionsresultater</title>
 </svelte:head>
 
 
@@ -124,7 +124,7 @@
                     <td>
                         <div class="division-selector">
                             <fieldset>
-                                <legend>Select division:</legend>
+                                <legend>Vælg division:</legend>
                 
                                 {#each competition.divisions as division}
                                     {#if division.name}
@@ -151,7 +151,7 @@
                 <tr>
                     <td>
                         <div class="liveresults">
-                            <a target="_blank" href={liveresults_url}>View on Liveresults</a>
+                            <a target="_blank" href={liveresults_url}>Se på Liveresults</a>
                         </div>
                     </td>
                 </tr>
@@ -169,6 +169,6 @@
 {#if (!contains_divisions && !contains_liveresults_id)}
     <div class="error">
         <p class="frown">:(</p>
-        <p>No results in this competition (yet)</p>
+        <p>Ingen resultater i denne konkurrence (endnu)</p>
     </div>
 {/if}

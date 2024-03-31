@@ -27,7 +27,7 @@
     {:else}
         <div class="error">
             <p class="frown">:(</p>
-            <p>There is nothing here</p>
+            <p>Der er ikke noget at se her</p>
         </div>
     {/if}
 </div>

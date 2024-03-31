@@ -11,7 +11,7 @@
 </style>
 
 <svelte:head>
-    <title>Live Division Results</title>
+    <title>Live Divisionsresultater</title>
 </svelte:head>
 
 <div class="base">
@@ -24,7 +24,7 @@
     {:else if data.competitions_today.length <= 0}
         <div class="error">
             <p class="frown">:(</p>
-            <p>No competitions to show</p>
+            <p>Ingen konkurrencer at vise</p>
         </div>
     {/if}
 </div>

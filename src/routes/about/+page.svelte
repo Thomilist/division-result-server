@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>About - Live Division Results</title>
+    <title>Om - Live Divisionsresultater</title>
 </svelte:head>
 
 <style lang="scss">
@@ -8,95 +8,48 @@
 </style>
 
 <div class="base">
-    <h1>About</h1>
+    <h1>Om</h1>
 
     <p>
-        Live Division Results is developed by Thomas Emil Jensen from Horsens OK.
-        It made its debut at a division match in Barrit in September of 2023 following a week of intense development.
-        The service consists two components: Division Result Server and Division Result Bridge.
+        Live Divisionsresultater er udviklet af Thomas Emil Jensen fra Horsens OK
+        &mdash; oprindeligt lavet i forbindelse med en divisionsmatch arrangeret af netop Horsens OK i september 2023,
+        men også frit tilgængeligt for andre.
     </p>
 
     <p>
-        Division Result Server is what you are looking at right now.
-        It stores and presents competition and division metadata, as well as division results.
-        On the competition pages, new results are automatically loaded when available, providing convenient, live access to division results.
-        In that sense, it is the division result counterpart to the existing Liveresults platform, albeit much simpler in terms of functionality.
+        Inspirationen var, at eksisterende programmer og tjenester <i>næsten</i> opfyldte målet om live formidling af divisionsresultater.
+        Divisionsmatchberegning, som typisk benyttes til at beregne resultaterne, kunne allerede producere resultater i HTML-format,
+        og det var allerede normen at udgive klasseresultater live på fx Liveresults.
+        En kombination af disse elementer var altså oplagt.
     </p>
 
     <p>
-        The server is a Node.js web server built with SvelteKit and connected to a PostgreSQL database using Prisma.
-        Self-hosting the server is a viable option, but this particular instance is running on an Oracle Linux compute VM at Oracle Cloud Infrastructure,
-        comfortably hidden away behind an Apache HTTP server in reverse proxy configuration.
+        Løsningen består af to komponenter.
+        Det ene er en server, hvorpå resultaterne opbevares, og hvorfra de vises på en hjemmeside som den, du kigger på lige nu.
+        Den består af en simpel webserver og database, og er meget kreativt navngivet "Division Result Server".
     </p>
 
     <p>
-        Division Result Bridge is the other component.
-        As the name might suggest, it is meant to bridge the gap between the various programs involved.
-        It fetches results from MeOS's information server,
-        runs them through Divisionsmatchberegning once for every division configured,
-        and then uploads the division results to the Division Result Server
-        - all at a regular interval.
-        For organisers, Division Result Bridge is the main interface with the server.
-        In addition to managing the results processing pipeline,
-        it also allows organisers to create competitions on the server and assign their metadata.
-    </p>
-
-    <p>
-        Division Result Bridge is written in C++,
-        making extensive use of Qt 6 and its Widgets framework.
-        The program itself is cross-platform, running on Linux just as well as on Windows.
-        This is not particularly relevant, however, since MeOS and Divisionsmatchberegning both target Windows exclusively.
-    </p>
-
-    <p>
-        Future division match organisers interested in using Live Division Results should have a look at Division Result Bridge on GitHub (linked below).
-        There, you will find extensive documentation in both Danish and English, taking you from initial installation to execution on the day of the event.
-    </p>
-
-    <p>
-        Division Result Server and Division Result Bridge are free and open-source software published under the MIT license.
-        Feel free to use or modify them.
+        Det andet er et program, der fungerer som et bindeled i beregningen
+        &mdash; og som med tilsvarende kreativitet har fået navnet "Division Result Bridge".
+        Foruden fri adgang til selve programmet kan interesserede divisionsmatcharrangører også gøre brug af dertilhørende dokumentation på både dansk og engelsk.
     </p>
 
     <table class="link-table">
         <tr class="header">
-            <th>Resources</th>
+            <th>Links</th>
         </tr>
         <tr class="content">
-            <td><a target="_blank" href="https://github.com/Thomilist/division-result-server">Division Result Server</a></td>
+            <td><a target="_blank" href="https://thomilist.github.io/division-result-bridge/">Dokumentation til beregningsprogrammet &mdash; "Division Result Bridge"</a></td>
         </tr>
         <tr class="content">
-            <td><a target="_blank" href="https://github.com/Thomilist/division-result-bridge">Division Result Bridge</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://www.melin.nu/meos/en/index.php">MeOS</a></td>
+            <td><a target="_blank" href="https://github.com/Thomilist/division-result-server">Resultatserveren &mdash; "Division Result Server"</a></td>
         </tr>
         <tr class="content">
             <td><a target="_blank" href="https://github.com/AndersKlinting/divisionsmatchberegning/">Divisionsmatchberegning</a></td>
         </tr>
         <tr class="content">
             <td><a target="_blank" href="https://liveresultat.orientering.se/index.php?lang=en">Liveresults</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://nodejs.org/">Node.js</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://kit.svelte.dev/">SvelteKit</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://www.postgresql.org/">PostgreSQL</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://www.prisma.io/">Prisma</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://www.oracle.com/cloud/">Oracle Cloud Infrastructure</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://httpd.apache.org/">Apache HTTP Server</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://www.qt.io/">Qt Framework</a></td>
         </tr>
     </table>
 </div>

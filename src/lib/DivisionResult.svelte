@@ -51,7 +51,7 @@
     {#if division.resultsHtml}
 
         <p class="last-changed">
-            Last changed: {last_changed_text}
+            Sidst ændret: {last_changed_text}
         </p>
     
         <div class="division-result">
@@ -62,7 +62,7 @@
 
         <div class="error">
             <p class="frown">:(</p>
-            <p>No results for this division (yet)</p>
+            <p>Ingen resultater i denne division (endnu)</p>
         </div>
 
     {/if}

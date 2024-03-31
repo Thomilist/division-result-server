@@ -4,7 +4,7 @@
     export let comps: Competition[];
     export let today: boolean;
 
-    const header = today ? "Live Today" : "All Competitions";
+    const header = today ? "Live i dag" : "Alle konkurrencer";
 </script>
 
 <style lang="scss">
@@ -18,9 +18,9 @@
 
 <table class="link-table">
     <tr class="header">
-        {#if !today}<th class="date">Date</th>{/if}
-        <th class="name">Name</th>
-        <th class="org">Organiser</th>
+        {#if !today}<th class="date">Dato</th>{/if}
+        <th class="name">Navn</th>
+        <th class="org">Arrangør</th>
     </tr>
     {#each comps as comp}
     <tr class="content">
