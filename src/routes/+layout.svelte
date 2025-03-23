@@ -1,3 +1,8 @@
+<script>
+    /** @type {{children?: import('svelte').Snippet}} */
+    let { children } = $props();
+</script>
+
 <style lang="scss">
     @import '../styles/nav-bar.scss';
 </style>
@@ -11,4 +16,4 @@
     </nav>
 </div>
 
-<slot/>
+{@render children?.()}

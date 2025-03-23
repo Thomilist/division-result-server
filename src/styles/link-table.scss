@@ -6,38 +6,40 @@ table.link-table {
     width: 100%;
     margin-bottom: 50px;
 
-    th {
-        text-align: left;
-        padding: $vpad $hpad $vpad $hpad;
-    }
-
-    td {
-        padding: 0;
-    }
-
-    tr.header {
-        border-bottom: 1px solid black;
-    }
-
-    tr.content:last-child {
-        border-bottom: 1px solid black;
-    }
-
-    tr.content:nth-child(even) {
-        background-color: lightgray;
-    }
-
-    @media (pointer: fine) {
-            tr.content:hover {
-            background-color: lightblue;
-            cursor: pointer;
+    thead, tbody {
+        th {
+            text-align: left;
+            padding: $vpad $hpad $vpad $hpad;
         }
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
-        display: block;
-        padding: $vpad $hpad $vpad $hpad;
+    
+        td {
+            padding: 0;
+        }
+    
+        tr.header {
+            border-bottom: 1px solid black;
+        }
+    
+        tr.content:last-child {
+            border-bottom: 1px solid black;
+        }
+    
+        tr.content:nth-child(even) {
+            background-color: lightgray;
+        }
+    
+        @media (pointer: fine) {
+                tr.content:hover {
+                background-color: lightblue;
+                cursor: pointer;
+            }
+        }
+    
+        a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: $vpad $hpad $vpad $hpad;
+        }
     }
 }

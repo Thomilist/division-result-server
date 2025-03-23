@@ -4,16 +4,20 @@
 	import type { CompetitionWithDivisions } from "./prisma";
 	import { DateTime } from "luxon";
 
-    export let comp: CompetitionWithDivisions;
+    interface Props {
+        comp: CompetitionWithDivisions;
+    }
 
-    let competition: CompetitionWithDivisions = comp;
-    let competition_name: string;
+    let { comp }: Props = $props();
+
+    let competition: CompetitionWithDivisions = $state(comp);
+    let competition_name: string = $state("");
     let contains_name: boolean;
-    let contains_date: boolean;
-    let selected_division_id: number = 0;
-    let contains_divisions: boolean;
-    let liveresults_url: string;
-    let contains_liveresults_id: boolean;
+    let contains_date: boolean = $state(false);
+    let selected_division_id: number = $state(0);
+    let contains_divisions: boolean = $state(false);
+    let liveresults_url: string = $state("");
+    let contains_liveresults_id: boolean = $state(false);
 
     function selectInitialDivision()
     {
@@ -119,43 +123,45 @@
 {#if (contains_divisions || contains_liveresults_id)}
     <div class="panel">
         <table>
-            {#if (contains_divisions)}
-                <tr>
-                    <td>
-                        <div class="division-selector">
-                            <fieldset>
-                                <legend>Vælg division:</legend>
-                
-                                {#each competition.divisions as division}
-                                    {#if division.name}
-                                        <div>
-                                            <label>
-                                                <input
-                                                type="radio"
-                                                name={division.name}
-                                                value={division.divisionId}
-                                                bind:group={selected_division_id}
-                                            />
-                                                {division.name}
-                                            </label>
-                                        </div>
-                                    {/if}
-                                {/each}
-                            </fieldset>
-                        </div>
-                    </td>
-                </tr>
-            {/if}
-
-            {#if contains_liveresults_id}
-                <tr>
-                    <td>
-                        <div class="liveresults">
-                            <a target="_blank" href={liveresults_url}>Se på Liveresults</a>
-                        </div>
-                    </td>
-                </tr>
-            {/if}
+            <tbody>
+                {#if (contains_divisions)}
+                    <tr>
+                        <td>
+                            <div class="division-selector">
+                                <fieldset>
+                                    <legend>Vælg division:</legend>
+                    
+                                    {#each competition.divisions as division}
+                                        {#if division.name}
+                                            <div>
+                                                <label>
+                                                    <input
+                                                    type="radio"
+                                                    name={division.name}
+                                                    value={division.divisionId}
+                                                    bind:group={selected_division_id}
+                                                />
+                                                    {division.name}
+                                                </label>
+                                            </div>
+                                        {/if}
+                                    {/each}
+                                </fieldset>
+                            </div>
+                        </td>
+                    </tr>
+                {/if}
+    
+                {#if contains_liveresults_id}
+                    <tr>
+                        <td>
+                            <div class="liveresults">
+                                <a target="_blank" href={liveresults_url}>Se på Liveresults</a>
+                            </div>
+                        </td>
+                    </tr>
+                {/if}
+            </tbody>
         </table>
     </div>
 {/if}

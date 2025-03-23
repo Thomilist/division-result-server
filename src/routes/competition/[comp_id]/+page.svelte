@@ -2,7 +2,11 @@
     import Competition from '$lib/Competition.svelte';
 	import { Visibility } from '@prisma/client';
     import type { PageData } from './$types';
-    export let data: PageData;
+    interface Props {
+        data: PageData;
+    }
+
+    let { data }: Props = $props();
 
     const is_visible: boolean =
     (

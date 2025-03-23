@@ -4,12 +4,16 @@
 	import lastChangedText from "./lastChangedText";
 	import { DateTime } from "luxon";
 
-    export let div: Division;
-    export let active_id: number;
+    interface Props {
+        div: Division;
+        active_id: number;
+    }
 
-    let division: Division = div;
+    let { div, active_id }: Props = $props();
+
+    let division: Division = $state(div);
     let last_changed: DateTime;
-    let last_changed_text: string = lastChangedText(DateTime.fromJSDate(div.updatedAt));
+    let last_changed_text: string = $state(lastChangedText(DateTime.fromJSDate(div.updatedAt)));
     let timer: NodeJS.Timeout;
 
     async function fetchData()

@@ -1,10 +1,11 @@
+<!-- @migration-task Error while migrating Svelte code: `<tr>` is invalid inside `<table>` -->
 <svelte:head>
     <title>Om - Live Divisionsresultater</title>
 </svelte:head>
 
-<style lang="scss">
-    @import '../../styles/base.scss';
-    @import '../../styles/link-table.scss';
+<style>
+    @import '../../styles/base.css';
+    @import '../../styles/link-table.css';
 </style>
 
 <div class="base">
@@ -36,20 +37,24 @@
     </p>
 
     <table class="link-table">
-        <tr class="header">
-            <th>Links</th>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://thomilist.github.io/division-result-bridge/">Dokumentation til beregningsprogrammet &mdash; "Division Result Bridge"</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://github.com/Thomilist/division-result-server">Resultatserveren &mdash; "Division Result Server"</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://github.com/AndersKlinting/divisionsmatchberegning/">Divisionsmatchberegning</a></td>
-        </tr>
-        <tr class="content">
-            <td><a target="_blank" href="https://liveresultat.orientering.se/index.php?lang=en">Liveresults</a></td>
-        </tr>
+        <thead>
+            <tr class="header">
+                <th>Links</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="content">
+                <td><a target="_blank" href="https://thomilist.github.io/division-result-bridge/">Dokumentation til beregningsprogrammet &mdash; "Division Result Bridge"</a></td>
+            </tr>
+            <tr class="content">
+                <td><a target="_blank" href="https://github.com/Thomilist/division-result-server">Resultatserveren &mdash; "Division Result Server"</a></td>
+            </tr>
+            <tr class="content">
+                <td><a target="_blank" href="https://github.com/AndersKlinting/divisionsmatchberegning/">Divisionsmatchberegning</a></td>
+            </tr>
+            <tr class="content">
+                <td><a target="_blank" href="https://liveresultat.orientering.se/index.php?lang=en">Liveresults</a></td>
+            </tr>
+        </tbody>
     </table>
 </div>

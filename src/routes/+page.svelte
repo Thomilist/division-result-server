@@ -2,7 +2,11 @@
     import CompetitionList from '$lib/CompetitionList.svelte';
     import type { PageServerData } from './$types';
 
-    export let data: PageServerData;
+    interface Props {
+        data: PageServerData;
+    }
+
+    let { data }: Props = $props();
 </script>
 
 <style lang="scss">
