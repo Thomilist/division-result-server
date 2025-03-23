@@ -9,7 +9,7 @@ export const GET: RequestHandler = async ({ params }) =>
 {
     if (params.comp_id == undefined || params.div_id == undefined)
     {
-        throw error(404);
+        error(404);
     }
     
     const comp_id: number = parseInt(params.comp_id);
@@ -17,19 +17,19 @@ export const GET: RequestHandler = async ({ params }) =>
 
     if (Number.isNaN(comp_id) || Number.isNaN(div_id))
     {
-        throw HTTP_Error_Malformed_Metadata;
+        HTTP_Error_Malformed_Metadata();
     }
     
     const competition = await lookupCompetitionById(comp_id, DivisionContent.LIGHT, false);
 
     if (competition == null)
     {
-        throw HTTP_Error_Competition_Not_Found(params.comp_id);
+        HTTP_Error_Competition_Not_Found(params.comp_id);
     }
 
     if (competition.visibility === Visibility.PRIVATE)
     {
-        throw HTTP_Error_Private_Competition;
+        HTTP_Error_Private_Competition(comp_id.toString());
     }
 
     const res = await prisma.division.findUnique({
@@ -46,7 +46,7 @@ export const GET: RequestHandler = async ({ params }) =>
 
     if (res == null)
     {
-        throw HTTP_Error_Division_Not_Found;
+        HTTP_Error_Division_Not_Found(comp_id.toString(), div_id.toString());
     }
 
     return json(res.updatedAt);

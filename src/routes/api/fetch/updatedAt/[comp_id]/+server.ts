@@ -12,12 +12,12 @@ export const GET: RequestHandler = async ({ params }) =>
 
     if (competition == null)
     {
-        throw HTTP_Error_Competition_Not_Found(comp_id.toString());
+        HTTP_Error_Competition_Not_Found(comp_id.toString());
     }
 
     if (competition.visibility === Visibility.PRIVATE)
     {
-        throw HTTP_Error_Private_Competition;
+        HTTP_Error_Private_Competition(comp_id.toString());
     }
 
     return json(competition.updatedAt);

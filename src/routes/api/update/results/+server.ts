@@ -13,7 +13,7 @@ export const PUT: RequestHandler = async ({ request }) =>
 
     if (request.body === null)
     {
-        throw HTTP_Error_No_Payload;
+        HTTP_Error_No_Payload();
     }
 
     const payload: PayloadJson = await request.json();

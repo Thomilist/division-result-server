@@ -9,12 +9,12 @@ export default async function updateResults(competition: CompetitionWithLightDiv
 {
     if (payload.metadata == null)
     {
-        throw HTTP_Error_No_Metadata;
+        HTTP_Error_No_Metadata();
     }
 
     if (payload.results == null)
     {
-        throw HTTP_Error_No_Results;
+        HTTP_Error_No_Results();
     }
 
     const metadata_json_string = Base64.decode(payload.metadata);
@@ -22,13 +22,13 @@ export default async function updateResults(competition: CompetitionWithLightDiv
 
     if (metadata.competition == null)
     {
-        throw HTTP_Error_Malformed_Metadata;
+        HTTP_Error_Malformed_Metadata();
     }
 
     // Verify that the division IDs listed in metadata and provided alongside results are the same
     if (metadata.divisions == null)
     {
-        throw HTTP_Error_Malformed_Metadata;
+        HTTP_Error_Malformed_Metadata();
     }
 
     let metadata_division_ids = new Set<number>();
@@ -37,7 +37,7 @@ export default async function updateResults(competition: CompetitionWithLightDiv
     {
         if (division.division_id == null)
         {
-            throw HTTP_Error_Malformed_Metadata;
+            HTTP_Error_Malformed_Metadata();
         }
 
         metadata_division_ids.add(division.division_id);
@@ -49,7 +49,7 @@ export default async function updateResults(competition: CompetitionWithLightDiv
     {
         if (result.division_id == null)
         {
-            throw HTTP_Error_Malformed_Results;
+            HTTP_Error_Malformed_Results();
         }
 
         results_division_ids.add(result.division_id);
@@ -59,7 +59,7 @@ export default async function updateResults(competition: CompetitionWithLightDiv
 
     if (division_ids_union.size !== metadata_division_ids.size)
     {
-        throw HTTP_Error_Mismatched_Divisions;
+        HTTP_Error_Mismatched_Divisions();
     }
 
     // Actually update the results

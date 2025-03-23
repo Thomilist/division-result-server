@@ -15,12 +15,12 @@ export const GET: RequestHandler = async ({ params }) =>
 
     if (competition == null)
     {
-        throw HTTP_Error_Competition_Not_Found(comp_id.toString());
+        HTTP_Error_Competition_Not_Found(comp_id.toString());
     }
 
     if (competition.visibility === Visibility.PRIVATE)
     {
-        throw HTTP_Error_Private_Competition(comp_id.toString());
+        HTTP_Error_Private_Competition(comp_id.toString());
     }
 
     const division = await prisma.division.findUnique({
@@ -34,7 +34,7 @@ export const GET: RequestHandler = async ({ params }) =>
 
     if (division == null)
     {
-        throw HTTP_Error_Division_Not_Found(comp_id.toString(), div_id.toString());
+        HTTP_Error_Division_Not_Found(comp_id.toString(), div_id.toString());
     }
 
     return json(division);

@@ -23,7 +23,7 @@ export const GET: RequestHandler = async ({ params }) =>
 
     if (analytics == null)
     {
-        throw HTTP_Error_Competition_Not_Found(comp_id.toString());
+        HTTP_Error_Competition_Not_Found(comp_id.toString());
     }
 
     return json(analytics);

@@ -12,7 +12,7 @@ export default async function updateMetadata(competition: CompetitionWithLightDi
 {
     if (payload.metadata == null)
     {
-        throw HTTP_Error_No_Metadata;
+        HTTP_Error_No_Metadata();
     }
 
     const metadata_json_string = Base64.decode(payload.metadata);
@@ -20,7 +20,7 @@ export default async function updateMetadata(competition: CompetitionWithLightDi
 
     if (metadata.competition == null)
     {
-        throw HTTP_Error_Malformed_Metadata;
+        HTTP_Error_Malformed_Metadata();
     }
 
     if (metadata.competition.competition_name != null)

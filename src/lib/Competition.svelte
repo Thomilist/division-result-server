@@ -33,7 +33,7 @@
         }
         else
         {
-            competition_name = "Unnamed Competition";
+            competition_name = "Konkurrence uden navn";
         }
 
         contains_date = ((competition.date != null) && (competition.date.length > 0));

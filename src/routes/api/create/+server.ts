@@ -9,7 +9,7 @@ export const POST: RequestHandler = async ({ request }) =>
 
     if (password_header === null)
     {
-        throw HTTP_Error_No_Password;
+        HTTP_Error_No_Password();
     }
 
     const competition = await prisma.competition.create({

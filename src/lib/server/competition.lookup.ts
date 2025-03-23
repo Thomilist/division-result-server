@@ -13,14 +13,14 @@ export async function lookupCompetitionByRequest(request: Request, division_cont
 
     if (competition_id_header === null)
     {
-        throw HTTP_Error_No_Competition_ID;
+        HTTP_Error_No_Competition_ID();
     }
     
     const password_header = request.headers.get(LDR_Password);
 
     if (password_header === null)
     {
-        throw HTTP_Error_No_Password;
+        HTTP_Error_No_Password();
     }
 
     const comp_id = validateId(competition_id_header);
@@ -28,12 +28,12 @@ export async function lookupCompetitionByRequest(request: Request, division_cont
 
     if (competition === null)
     {
-        throw HTTP_Error_Competition_Not_Found(competition_id_header);
+        HTTP_Error_Competition_Not_Found(competition_id_header);
     }
 
     if (password_header !== competition.password)
     {
-        throw HTTP_Error_Incorrect_Password(competition_id_header);
+        HTTP_Error_Incorrect_Password(competition_id_header);
     }
 
     return competition;
@@ -90,7 +90,7 @@ export async function lookupCompetitionById(competition_id: number, division_con
 
     if (competition == null)
     {
-        throw HTTP_Error_Competition_Not_Found(competition_id.toString());
+        HTTP_Error_Competition_Not_Found(competition_id.toString());
     }
 
     if (!include_password)
