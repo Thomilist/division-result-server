@@ -27,7 +27,7 @@
 
 <div class="base">
     {#if is_visible}
-        {#if data.comp != null}
+        {#if data.comp}
             <Competition comp={data.comp}/>
         {/if}
     {:else}
