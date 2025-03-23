@@ -15,7 +15,8 @@
     let division: Division = $state(div);
     let last_changed: DateTime;
     let last_changed_text: string = $state(lastChangedText(DateTime.fromJSDate(div.updatedAt)));
-    let timer: NodeJS.Timeout;
+    let update_timer: NodeJS.Timeout;
+    let last_changed_timer: NodeJS.Timeout;
 
     async function fetchData()
     {
@@ -31,19 +32,19 @@
 
             console.log("Division data updated");
         }
-
-        last_changed_text = lastChangedText(updated_at);
     }
 
     onMount(() =>
     {
-        timer = setInterval(async () => {fetchData();}, 10000);
+        update_timer = setInterval(async () => {fetchData();}, 10000);
+        last_changed_timer = setInterval(async () => {last_changed_text = lastChangedText(last_changed);}, 500);
         fetchData();
     });
 
     onDestroy(() =>
     {
-        clearInterval(timer);
+        clearInterval(update_timer);
+        clearInterval(last_changed_timer);
     });
 </script>
 
@@ -58,7 +59,7 @@
         <p class="last-changed">
             Sidst ændret: {last_changed_text}
         </p>
-    
+
         <div class="division-result" data-overview-only={overview_only}>
             {@html division.resultsHtml}
         </div>
