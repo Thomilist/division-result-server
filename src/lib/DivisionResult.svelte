@@ -7,9 +7,10 @@
     interface Props {
         div: Division;
         active_id: number;
+        overview_only: boolean;
     }
 
-    let { div, active_id }: Props = $props();
+    let { div, active_id, overview_only }: Props = $props();
 
     let division: Division = $state(div);
     let last_changed: DateTime;
@@ -58,7 +59,7 @@
             Sidst ændret: {last_changed_text}
         </p>
     
-        <div class="division-result">
+        <div class="division-result" data-overview-only={overview_only}>
             {@html division.resultsHtml}
         </div>
 

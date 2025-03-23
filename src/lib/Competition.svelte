@@ -90,7 +90,6 @@
     onMount(() =>
     {
         timer = setInterval(async () => {fetchData();}, 30000);
-        fetchData();
         logVisit();
     });
 
@@ -102,6 +101,7 @@
 
 <style>
     @import '../styles/comp-header.css';
+    @import '../styles/loading.css';
 </style>
 
 <svelte:head>
@@ -109,18 +109,22 @@
 </svelte:head>
 
 
-
-{#if contains_date}
+{#await fetchData()}
+    <div class="loading">
+        <p>Indlæser data...</p>
+    </div>
+{:then _} 
+    {#if contains_date}
     <h2 class="comp-date">
         {competition.date}
     </h2>
-{/if}
+    {/if}
 
-<h1 class="comp-name">
+    <h1 class="comp-name">
     {competition_name}
-</h1>
+    </h1>
 
-{#if (contains_divisions || contains_liveresults_id)}
+    {#if (contains_divisions || contains_liveresults_id)}
     <div class="panel">
         <table>
             <tbody>
@@ -151,7 +155,7 @@
                         </td>
                     </tr>
                 {/if}
-    
+
                 {#if contains_liveresults_id}
                     <tr>
                         <td>
@@ -164,17 +168,18 @@
             </tbody>
         </table>
     </div>
-{/if}
+    {/if}
 
-{#if contains_divisions}
+    {#if contains_divisions}
     {#each competition.divisions as division}
-        <DivisionResult div={division} active_id={selected_division_id}/>
+        <DivisionResult div={division} active_id={selected_division_id} overview_only={false}/>
     {/each}
-{/if}
+    {/if}
 
-{#if (!contains_divisions && !contains_liveresults_id)}
+    {#if (!contains_divisions && !contains_liveresults_id)}
     <div class="error">
         <p class="frown">:(</p>
         <p>Ingen resultater i denne konkurrence (endnu)</p>
     </div>
-{/if}
+    {/if}
+{/await}

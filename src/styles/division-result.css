@@ -7,6 +7,12 @@ p.last-changed {
     font-style: italic;
 }
 
+:global(:not(h3.matchnavn, .matchresultat, .matchresultat *)) {
+    :global([data-overview-only="true"] &) {
+        display: none;
+    }
+}
+
 :global(.division-result) {
     :global(h3.matchnavn) {
         border-bottom: 5px solid blue;

@@ -2,6 +2,7 @@
     import Competition from '$lib/Competition.svelte';
 	import { Visibility } from '@prisma/client';
     import type { PageData } from './$types';
+
     interface Props {
         data: PageData;
     }
@@ -16,7 +17,8 @@
             data.comp.visibility === Visibility.PUBLIC
             ||
             data.comp.visibility === Visibility.HIDDEN
-        ));
+        )
+    );
 </script>
 
 <style>

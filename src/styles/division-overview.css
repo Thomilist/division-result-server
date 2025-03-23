@@ -1,0 +1,32 @@
+:global(html, body) {
+    margin: 0;
+    padding: 0;
+}
+
+:global(.nav-bar) {
+    display: none;
+}
+
+.division-overview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: fit-content;
+    min-height: 100vh;
+
+    .division-overview-item {
+        display: flex;
+        flex-direction: column;
+
+        :global(.last-changed) {
+            order: 2;
+            margin-top: 4px;
+            margin-bottom: 0;
+            font-size: small;
+        }
+
+        :global(.division-result) {
+            order: 1;
+        }
+    }
+}
