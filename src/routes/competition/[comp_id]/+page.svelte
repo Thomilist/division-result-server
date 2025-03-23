@@ -19,8 +19,8 @@
         ));
 </script>
 
-<style lang="scss">
-    @import '../../../styles/base.scss';
+<style>
+    @import '../../../styles/base.css';
 </style>
 
 <div class="base">

@@ -1,4 +1,4 @@
-@import 'base.scss';
+@import 'base.css';
 
 p.last-changed {
     width: 100%;
@@ -77,8 +77,6 @@ p.last-changed {
                 white-space: wrap;
             }
         }
-
-        $table_spacing: 50px;
         
         :global(.matchresultat) {
             :global(th) {

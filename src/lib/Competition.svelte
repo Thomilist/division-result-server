@@ -100,8 +100,8 @@
     });
 </script>
 
-<style lang="scss">
-    @import '../styles/comp-header.scss';
+<style>
+    @import '../styles/comp-header.css';
 </style>
 
 <svelte:head>

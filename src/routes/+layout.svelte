@@ -3,8 +3,8 @@
     let { children } = $props();
 </script>
 
-<style lang="scss">
-    @import '../styles/nav-bar.scss';
+<style>
+    @import '../styles/nav-bar.css';
 </style>
 
 <div class="nav-bar">

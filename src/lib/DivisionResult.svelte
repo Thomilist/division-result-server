@@ -46,8 +46,8 @@
     });
 </script>
 
-<style lang="scss">
-    @import '../styles/division-result.scss';
+<style>
+    @import '../styles/division-result.css';
 </style>
 
 {#if (division.divisionId == active_id)}

@@ -1,0 +1,27 @@
+@import 'fonts.css';
+@import 'error.css';
+
+
+.base {
+    --target_width: 800px;
+    --max_relative_width: 70%;
+
+    max-width: max(var(--target_width), var(--max_relative_width));
+
+    @media (max-width: var(--target_width)) {
+        max-width: 100%;
+    }
+
+    @media (min-width: var(--target_width)) {
+        max-width: max(var(--target_width), var(--max_relative_width));
+    }
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, h2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}

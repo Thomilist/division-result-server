@@ -9,9 +9,9 @@
     let { data }: Props = $props();
 </script>
 
-<style lang="scss">
-    @import '../styles/fonts.scss';
-    @import '../styles/base.scss';
+<style>
+    @import '../styles/fonts.css';
+    @import '../styles/base.css';
 </style>
 
 <svelte:head>

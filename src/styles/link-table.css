@@ -1,7 +1,7 @@
-$vpad: 7px;
-$hpad: 10px;
-
 table.link-table {
+    --vpad: 7px;
+    --hpad: 10px;
+
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 50px;
@@ -9,7 +9,7 @@ table.link-table {
     thead, tbody {
         th {
             text-align: left;
-            padding: $vpad $hpad $vpad $hpad;
+            padding: var(--vpad) var(--hpad) var(--vpad) var(--hpad);
         }
     
         td {
@@ -39,7 +39,7 @@ table.link-table {
             text-decoration: none;
             color: black;
             display: block;
-            padding: $vpad $hpad $vpad $hpad;
+            padding: var(--vpad) var(--hpad) var(--vpad) var(--hpad);
         }
     }
 }

@@ -8,9 +8,9 @@
     const header = today ? "Live i dag" : "Alle konkurrencer";
 </script>
 
-<style lang="scss">
-    @import '../styles/base.scss';
-    @import '../styles/link-table.scss';
+<style>
+    @import '../styles/base.css';
+    @import '../styles/link-table.css';
 </style>
 
 <div class="header">
