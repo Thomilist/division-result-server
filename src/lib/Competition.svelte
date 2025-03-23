@@ -101,7 +101,6 @@
 
 <style>
     @import '../styles/comp-header.css';
-    @import '../styles/loading.css';
 </style>
 
 <svelte:head>
@@ -109,12 +108,8 @@
 </svelte:head>
 
 
-{#await fetchData()}
-    <div class="loading">
-        <p>Indlæser data...</p>
-    </div>
-{:then _} 
-    {#if contains_date}
+
+{#if contains_date}
     <h2 class="comp-date">
         {competition.date}
     </h2>
@@ -181,5 +176,4 @@
         <p class="frown">:(</p>
         <p>Ingen resultater i denne konkurrence (endnu)</p>
     </div>
-    {/if}
-{/await}
+{/if}
